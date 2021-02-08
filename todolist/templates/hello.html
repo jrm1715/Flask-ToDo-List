@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<title>Hello from Flask</title>
+{% if name %}
+    {% for name in range(1, 5) %}
+        <h1>Hello {{ name }}!</h1>
+    {% endfor  %}
+{% else %}
+    <h1>Hello, World!</h1>
+{% endif %}

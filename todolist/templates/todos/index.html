@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 class='page-title'>{% block title %}Flask To-Do List{% endblock %}</h1>
+    <a class="action" href="{{ url_for('todos.create') }}">New</a>
+{% endblock %}
+
+{% block content %}
+    {% for item in items %}
+        <article>
+            <header>
+                <div class='item-info'>
+                    <h1 class='head1'>{{ item['title'] }}</h1>
+                    <div class='about'> Created {{ item['created'].strftime('%y-%m-%d')}}</div>
+                </div>                              
+                                
+            </header>
+            <div class='edit'>
+                <a href="{{ url_for('todos.update', id=item['id']) }}">Edit</a>
+            </div>            
+            <ul>
+                <li><p id='post-body' class='body'>{{ item['body'] }}</p></li>
+            </ul>            
+        </article>
+        {% if not loop.las %}
+            <hr>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
