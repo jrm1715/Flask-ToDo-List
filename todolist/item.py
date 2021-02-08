@@ -88,5 +88,3 @@ def delete(id):
     db.execute('DELETE FROM todo WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('todos.index'))
-        
-
